@@ -1,5 +1,5 @@
 # secure_hash_standard
-SHS C implementation according to NIST FIPS 180-4
+SHS C library implementation according to NIST FIPS 180-4
 
 Об'єкти структур SHA створюються відповідними функціями CreateSHA (повертає true якщо об'єкт успішно створено) та вимагають звільнення пам'яті по закінченню роботи з ними через DestroySHA
 
