@@ -84,7 +84,7 @@ static void WriteBlockSHA1(const block512_t block, digest160_t dst) {
 
 static void WriteBlockSHA256(const block512_t block, digest256_t dst) {
   schedule_t W;
-  schedule_t K = {
+  static const schedule_t K = {
     0x428a2f98ui32, 0x71374491ui32, 0xb5c0fbcfui32, 0xe9b5dba5ui32, 0x3956c25bui32, 0x59f111f1ui32, 0x923f82a4ui32, 0xab1c5ed5ui32,
     0xd807aa98ui32, 0x12835b01ui32, 0x243185beui32, 0x550c7dc3ui32, 0x72be5d74ui32, 0x80deb1feui32, 0x9bdc06a7ui32, 0xc19bf174ui32,
     0xe49b69c1ui32, 0xefbe4786ui32, 0x0fc19dc6ui32, 0x240ca1ccui32, 0x2de92c6fui32, 0x4a7484aaui32, 0x5cb0a9dcui32, 0x76f988daui32,
@@ -118,7 +118,7 @@ static void WriteBlockSHA256(const block512_t block, digest256_t dst) {
 
 static void WriteBlockSHA512(const block1024_t block, digest512_t dst) {
   schedule64_t W;
-  schedule64_t K = {
+  static const schedule64_t K = {
     0x428a2f98d728ae22ui64, 0x7137449123ef65cdui64, 0xb5c0fbcfec4d3b2fui64, 0xe9b5dba58189dbbcui64,
     0x3956c25bf348b538ui64, 0x59f111f1b605d019ui64, 0x923f82a4af194f9bui64, 0xab1c5ed5da6d8118ui64,
     0xd807aa98a3030242ui64, 0x12835b0145706fbeui64, 0x243185be4ee4b28cui64, 0x550c7dc3d5ffb4e2ui64,
