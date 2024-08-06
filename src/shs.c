@@ -243,7 +243,7 @@ bool SnapshotSHA1(const SHA1* msg, digest160_t dst) {
 bool ResetSHA1(SHA1* msg) {
   if (!msg)
     return false;
-  SHA1 sha1 = {
+  static const SHA1 sha1 = {
     0ui64, { 0x00000000ui32 },
     { 0x67452301ui32, 0xefcdab89ui32, 0x98badcfeui32, 0x10325476ui32, 0xc3d2e1f0ui32 }
   };
@@ -272,7 +272,7 @@ bool SnapshotSHA224(const SHA224* msg, digest224_t dst) {
 bool ResetSHA224(SHA224* msg) {
   if (!msg)
     return false;
-  SHA224 sha224 = {
+  static const SHA224 sha224 = {
     0ui64, { 0x00000000ui32 },
     { 0xc1059ed8ui32, 0x367cd507ui32, 0x3070dd17ui32, 0xf70e5939ui32, 0xffc00b31ui32, 0x68581511ui32, 0x64f98fa7ui32, 0xbefa4fa4ui32 }
   };
@@ -356,7 +356,7 @@ bool SnapshotSHA256(const SHA256* msg, digest256_t dst) {
 bool ResetSHA256(SHA256* msg) {
   if (!msg)
     return false;
-  SHA256 sha256 = {
+  static const SHA256 sha256 = {
     0ui64, { 0x00000000ui32 },
     { 0x6a09e667ui32, 0xbb67ae85ui32, 0x3c6ef372ui32, 0xa54ff53aui32, 0x510e527fui32, 0x9b05688cui32, 0x1f83d9abui32, 0x5be0cd19ui32 }
   };
@@ -385,7 +385,7 @@ bool SnapshotSHA384(const SHA384* msg, digest384_t dst) {
 bool ResetSHA384(SHA384* msg) {
   if (!msg)
     return false;
-  SHA384 sha384 = {
+  static const SHA384 sha384 = {
     { 0ui64, 0ui64 }, { 0x0000000000000000ui64 }, {
       0xcbbb9d5dc1059ed8ui64, 0x629a292a367cd507ui64, 0x9159015a3070dd17ui64, 0x152fecd8f70e5939ui64,
       0x67332667ffc00b31ui64, 0x8eb44a8768581511ui64, 0xdb0c2e0d64f98fa7ui64, 0x47b5481dbefa4fa4ui64
@@ -477,7 +477,7 @@ bool SnapshotSHA512(const SHA512* msg, digest512_t dst) {
 bool ResetSHA512(SHA512* msg) {
   if (!msg)
     return false;
-  SHA512 sha512 = {
+  static const SHA512 sha512 = {
     { 0ui64, 0ui64 }, { 0x0000000000000000ui64 }, {
       0x6a09e667f3bcc908ui64, 0xbb67ae8584caa73bui64, 0x3c6ef372fe94f82bui64, 0xa54ff53a5f1d36f1ui64,
       0x510e527fade682d1ui64, 0x9b05688c2b3e6c1fui64, 0x1f83d9abfb41bd6bui64, 0x5be0cd19137e2179ui64
@@ -512,7 +512,7 @@ bool SnapshotSHA512_224(const SHA512_224* msg, digest224_t dst) {
 bool ResetSHA512_224(SHA512_224* msg) {
   if (!msg)
     return false;
-  SHA512_224 sha512_224 = {
+  static const SHA512_224 sha512_224 = {
     { 0ui64, 0ui64 }, { 0x0000000000000000ui64 }, {
       0x8C3D37C819544DA2ui64, 0x73E1996689DCD4D6ui64, 0x1DFAB7AE32FF9C82ui64, 0x679DD514582F9FCFui64,
       0x0F6D2B697BD44DA8ui64, 0x77E36F7304C48942ui64, 0x3F9D85A86A1D36C8ui64, 0x1112E6AD91D692A1ui64
@@ -546,7 +546,7 @@ bool SnapshotSHA512_256(const SHA512_256* msg, digest256_t dst) {
 bool ResetSHA512_256(SHA512_256* msg) {
   if (!msg)
     return false;
-  SHA512_256 sha512_256 = {
+  static const SHA512_256 sha512_256 = {
     { 0ui64, 0ui64 }, { 0x0000000000000000ui64 }, {
       0x22312194FC2BF72Cui64, 0x9F555FA3C84C64C2ui64, 0x2393B86B6F53B151ui64, 0x963877195940EABDui64,
       0x96283EE2A88EFFE3ui64, 0xBE5E1E2553863992ui64, 0x2B0199FC2C85B8AAui64, 0x0EB72DDC81C52CA2ui64
