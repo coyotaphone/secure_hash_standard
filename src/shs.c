@@ -410,7 +410,7 @@ bool WriteSHA512(SHA512* msg, size_t bitc, const void* bitv) {
     msg->length.hiword + 1ui64 < msg->length.hiword))
     return false;
 
-  uint64_t* dstptr = msg->buffer + ((msg->length.loword & 511) >> 5);
+  uint64_t* dstptr = msg->buffer + ((msg->length.loword & 1023) >> 6);
   uint64_t* dstend = msg->buffer + 16;
 
   const uint8_t* srcptr = (const uint8_t*)bitv;
