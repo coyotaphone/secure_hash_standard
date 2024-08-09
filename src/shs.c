@@ -227,8 +227,6 @@ bool SnapshotSHA1(const SHA1* msg, digest160_t dst) {
   uint32_t* dstlen = block + 14;
   int offbit = msg->length & 31;
   *dstptr |= 1ui32 << (31 - offbit++);
-  if (offbit < 32)
-    *dstptr &= UINT32_MAX << (32 - offbit);
   if (++dstptr > dstlen) {
     WriteBlockSHA1(block, dst);
     memset(block, 0, (dstlen - block) << 2);
@@ -340,8 +338,6 @@ bool SnapshotSHA256(const SHA256* msg, digest256_t dst) {
   uint32_t* dstlen = block + 14;
   int offbit = msg->length & 31;
   *dstptr |= 1ui32 << (31 - offbit++);
-  if (offbit < 32)
-    *dstptr &= UINT32_MAX << (32 - offbit);
   if (++dstptr > dstlen) {
     WriteBlockSHA256(block, dst);
     memset(block, 0, (dstlen - block) << 2);
@@ -461,8 +457,6 @@ bool SnapshotSHA512(const SHA512* msg, digest512_t dst) {
   uint64_t* dstlen = block + 14;
   int offbit = msg->length.loword & 63;
   *dstptr |= 1ui64 << (63 - offbit++);
-  if (offbit < 64)
-    *dstptr &= UINT64_MAX << (64 - offbit);
   if (++dstptr > dstlen) {
     WriteBlockSHA512(block, dst);
     memset(block, 0, (dstlen - block) << 3);
